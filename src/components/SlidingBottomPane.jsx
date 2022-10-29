@@ -11,17 +11,18 @@ function SlidingBottomPane({ activePane, setActivePane }) {
   })
 
   return transitions((styles, item) => {
-    return item && (
-      <BottomPane
-        setActivePane={setActivePane}
-        toRender={item.component}
-        header={item.header}
-        headerColor={item.headerColor}
-        transitionStyles={styles}
+    return (
+      item && (
+        <BottomPane
+          setActivePane={setActivePane}
+          toRender={item.component}
+          header={item.header}
+          headerColor={item.headerColor}
+          transitionStyles={styles}
         />
+      )
     )
   })
 }
 
 export default SlidingBottomPane
-

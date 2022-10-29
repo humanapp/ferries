@@ -7,11 +7,14 @@ export default function SettingsView({ showOutOfService, setShowOutOfService }) 
         <label htmlFor="outOfServiceToggle" className="flex items-center cursor-pointer">
           <div className="relative">
             <input
-              onClick={() => { setShowOutOfService(prevState => !prevState) }}
+              onClick={() => {
+                setShowOutOfService((prevState) => !prevState)
+              }}
               type="checkbox"
               defaultChecked={showOutOfService}
               id="outOfServiceToggle"
-              className="sr-only" />
+              className="sr-only"
+            />
             <div className="block bg-gray-600 w-14 h-8 rounded-full" />
             <div className="toggle-dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition" />
           </div>

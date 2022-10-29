@@ -35,7 +35,7 @@ export default function App() {
         }
       })
 
-    return () => isSubscribed = false
+    return () => (isSubscribed = false)
   }
 
   useEffect(refreshVessels, [])
@@ -80,9 +80,12 @@ export default function App() {
       setActivePane(null)
     } else {
       setActivePane({
-        component: <SettingsPane 
-                      showOutOfService={showOutOfService}
-                      setShowOutOfService={setShowOutOfService} />,
+        component: (
+          <SettingsPane
+            showOutOfService={showOutOfService}
+            setShowOutOfService={setShowOutOfService}
+          />
+        ),
         header: SETTINGS,
       })
     }
@@ -109,28 +112,23 @@ export default function App() {
             return true
           })
           .map((v) => {
-          const isSelected = activePane && activePane.vesselID === v.id
-          const { icon, alt } = makeIcon(v.status(), isSelected)
+            const isSelected = activePane && activePane.vesselID === v.id
+            const { icon, alt } = makeIcon(v.status(), isSelected)
 
-          return (
-            <Marker
-              alt={alt}
-              key={v.id}
-              icon={icon}
-              position={[v.lat, v.lon]}
-              zIndexOffset={isSelected ? 1000 : 1}
-              eventHandlers={{ mousedown: setVessel(v) }}
-            />
-          )
-        })}
+            return (
+              <Marker
+                alt={alt}
+                key={v.id}
+                icon={icon}
+                position={[v.lat, v.lon]}
+                zIndexOffset={isSelected ? 1000 : 1}
+                eventHandlers={{ mousedown: setVessel(v) }}
+              />
+            )
+          })}
       </MapContainer>
-      <FixedControls 
-        refreshVessels={refreshVessels} 
-        setInfo={setInfo} 
-        setSettings={setSettings} />
-      <SlidingBottomPane 
-        activePane={activePane} 
-        setActivePane={setActivePane} />
+      <FixedControls refreshVessels={refreshVessels} setInfo={setInfo} setSettings={setSettings} />
+      <SlidingBottomPane activePane={activePane} setActivePane={setActivePane} />
     </section>
   )
 }
