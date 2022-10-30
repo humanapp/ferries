@@ -4,8 +4,8 @@ import delayed from './assets/ferry-token-delayed.svg'
 import outOfService from './assets/ferry-token-out-of-service.svg'
 import good from './assets/ferry-token-good.svg'
 
-const DEFAULT_H = 30
-const DEFAULT_W = 30
+const DEFAULT_H = 40
+const DEFAULT_W = 40
 
 export function makeIcon(status, selected) {
   let icon = good
@@ -21,8 +21,8 @@ export function makeIcon(status, selected) {
   const classes = selected
     ? 'bg-blue-secondary border-solid border border-gray-200 rounded-full shadow-md transition-height duration-500'
     : 'bg-transparent border-none shadow-none transition-height duration-500'
-  const width = selected ? 40 : DEFAULT_W
-  const height = selected ? 40 : DEFAULT_H
+  const width = selected ? 50 : DEFAULT_W
+  const height = selected ? 50 : DEFAULT_H
 
   return {
     alt,
